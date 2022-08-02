@@ -172,7 +172,7 @@ function longest(stringOne, stringTwo) { //creating function with two strings as
 
 
     // YOUR CODE ABOVE HERE //
-}
+
 
 /**
  * Given two Strings, return 1 if the first is higher in alphabetical order than
