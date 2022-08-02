@@ -207,14 +207,24 @@ else if (stringBoth.sort() == stringBoth && stringBoth2.sort() == stringBoth2) {
  *
  * TIP: How can we compare Strings? Is 'a' greater than or less than 'b'?
  */
-function sortDescending(stringOne, stringTwo) {
+ function sortDescending(stringOne, stringTwo) { //creating function with two strings a parameter.
     // YOUR CODE BELOW HERE //
-
-
+    let stringBoth = [stringOne, stringTwo]; //creating placeholder for both strings in array.
+    let stringBoth2 = [stringTwo, stringOne];
+if  (stringBoth.sort() == stringTwo, stringOne && stringOne !== stringTwo) { //if stringTwo is first alphabetically this conditional is True.
+    return 1; //returns value of 1
+}
+else if (stringBoth2.sort() == stringOne, stringTwo && stringOne !== stringTwo) { //if stringOne is first alphabetically this conditional is True.
+    return -1; //returns value of -1
+}
+else if (stringBoth.sort() == stringBoth && stringBoth2.sort() == stringBoth2) {
+    return 0;  //if both variables with strings reversed have no change when sort is used it will return value of 0.
+}
 
 
     // YOUR CODE ABOVE HERE //
 }
+
 
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
