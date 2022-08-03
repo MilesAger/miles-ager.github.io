@@ -33,8 +33,20 @@
  *      the exact case.
  */
 
-function greeter(hour) {
+ function greeter(hour) { //function with one parameter.
     // YOUR CODE BELOW HERE //
+    if (hour <= 11) { //conditiononal if hour is 11 or less
+        console.log("Good Morning!"); //prints string
+        }
+        else if (hour <= 16) { //conditional if hour is 16 or less and first conditional was not met.
+            console.log("Good Afternoon!"); //prints string
+        }
+        else if (hour <= 21) { //conditional if hour is 21 or less and other conditionals are not met
+            console.log("Good Evening!"); //prints string
+        }
+        else {
+            console.log("Good Night!"); //prints string if other conditionals are not met.
+        }
     
     
     
