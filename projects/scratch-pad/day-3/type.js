@@ -14,7 +14,7 @@
  */
 function isArray(value) {
     // YOUR CODE BELOW HERE //
-    
+    return Array.isArray(value);
     
     
     
@@ -33,7 +33,7 @@ function isObject(value) {
     // YOUR CODE BELOW HERE //
     
     
-    
+    //how to determine if object is instance of date object.
     
     // YOUR CODE ABOVE HERE //
 }

@@ -11,14 +11,15 @@
  * return a Function that tests whether a given value is greater than the 
  * base.
  */
-function createGreaterThanFilter(base) {
+ function createGreaterThanFilter(base) {
     // YOUR CODE BELOW HERE //
     
-    
-    
-    
+    return function greaterThan2(num) {
+       return (num > base)  
+    }
     // YOUR CODE ABOVE HERE //
 }
+
 
 /** 
  * Given an input base to test against, which could be a String or Number, 
@@ -28,8 +29,9 @@ function createGreaterThanFilter(base) {
 function createLessThanFilter(base) {
     // YOUR CODE BELOW HERE //
     
-    
-    
+    return function lessThan2(num) {
+       return (num < base)  
+    }
     
     // YOUR CODE ABOVE HERE //
 }
@@ -41,7 +43,9 @@ function createLessThanFilter(base) {
  */
 function createStartsWithFilter(startsWith) {
     // YOUR CODE BELOW HERE //
-    
+    return function test(string) {
+        return (string[0].toLowerCase() == startsWith.toLowerCase())
+    }
     
     
     
@@ -56,7 +60,9 @@ function createStartsWithFilter(startsWith) {
 function createEndsWithFilter(endsWith) {
     // YOUR CODE BELOW HERE //
     
-    
+    return function test(string) {
+        return (string[string.length - 1].toLowerCase() === endsWith.toLowerCase())
+    }
     
     
     // YOUR CODE ABOVE HERE //
@@ -71,8 +77,13 @@ function createEndsWithFilter(endsWith) {
  */
 function modifyStrings(strings, modify) {
     // YOUR CODE BELOW HERE //
-    
-    
+    var pot = [];
+    return function change() {
+      for (var i = 0; i < strings.length; i++) {
+        pot = strings[i] + modify
+      }     
+      return pot;
+    }
     
     
     // YOUR CODE ABOVE HERE //
