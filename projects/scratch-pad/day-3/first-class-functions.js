@@ -78,12 +78,10 @@ function createEndsWithFilter(endsWith) {
 function modifyStrings(strings, modify) {
     // YOUR CODE BELOW HERE //
     var pot = [];
-    return function change() {
       for (var i = 0; i < strings.length; i++) {
-        pot = strings[i] + modify
+        pot.push(modify(strings[i]))
       }     
       return pot;
-    }
     
     
     // YOUR CODE ABOVE HERE //
@@ -100,10 +98,13 @@ function modifyStrings(strings, modify) {
  */
 function allStringsPass(strings, test) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
-    
+    for (var i = 0; i < strings.length; i++) {
+        if (!test(strings[i])) {
+            return false;
+        }
+          
+    }
+    return true;
     // YOUR CODE ABOVE HERE //
 }
 
