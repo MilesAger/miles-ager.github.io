@@ -7,7 +7,7 @@
  * 
  *  a. Create a factory Function called makeContact(id, nameFirst, nameLast) 
  *     that returns a contact object.
- *     
+ *   
  *          ex: makeContact(1, 'Max', 'Gaudin'); // => {id: 1, nameFirst: 'Max', nameLast: 'Gaudin'}
  *     
  *  b. Create a factory Function called makeContactList that returns an Object 
@@ -35,22 +35,41 @@
 
 // YOUR CODE GOES BELOW HERE //
 function makeContact(id, nameFirst, nameLast) {
-
-} 
+  return {
+    id: id,
+    nameFirst: nameFirst,
+    nameLast: nameLast
+  }
+}
 
 
 function makeContactList() {
-    /*
-     * You need something here to hold contacts. See length api for a hint:
-     */
-    var contacts;
-    
-    return {
-        // we implemented the length api for you //
-        length: function() {
-            return contacts.length;
+  /*
+   * You need something here to hold contacts. See length api for a hint:
+   */
+  var contacts = [];
+
+  return {
+    // we implemented the length api for you //
+    length: function () {
+      return contacts.length;
+    },
+    addContact: function (contact) {
+      contacts.push(contact);
+      return contacts
+    }, //take a full name string and returns the contact object 
+    findContact: function (fullName) {
+      var name = fullName.split(' ');
+      console.log(name);
+      for (var i = 0; i < contacts.length - 1; i++) {
+
+        if (contacts[i].nameFirst === name[0] && contacts[i].nameLast === name[1]) {
+          return contacts[i];
         }
-    }
+      }
+       return undefined;
+  }
+}
 }
 
 
@@ -62,9 +81,9 @@ function makeContactList() {
 
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
-if((typeof process !== 'undefined') &&
-(typeof process.versions.node !== 'undefined')) {
-    // here, export any references you need for tests //
-    module.exports.makeContact = makeContact;
-    module.exports.makeContactList = makeContactList;
+if ((typeof process !== 'undefined') &&
+  (typeof process.versions.node !== 'undefined')) {
+  // here, export any references you need for tests //
+  module.exports.makeContact = makeContact;
+  module.exports.makeContactList = makeContactList;
 }
