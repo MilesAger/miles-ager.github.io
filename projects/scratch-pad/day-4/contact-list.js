@@ -78,7 +78,8 @@ removeContact: function(contact) {
     contacts.splice(i, 1);
   }
 
-}
+},
+//addAllContacts
 }
 }
 
