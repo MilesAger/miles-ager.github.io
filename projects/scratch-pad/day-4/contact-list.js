@@ -59,19 +59,28 @@ function makeContactList() {
       return contacts
     }, //take a full name string and returns the contact object 
     findContact: function (fullName) {
-      var name = fullName.split(' ');
-      console.log(name);
-      for (var i = 0; i < contacts.length - 1; i++) {
-
-        if (contacts[i].nameFirst === name[0] && contacts[i].nameLast === name[1]) {
-          return contacts[i];
+      var con;
+      console.log(con);
+      for (var i = 0; i <= contacts.length - 1; i++) {
+        if (contacts[i].nameFirst === fullName.split(' ')[0] && contacts[i].nameLast === fullName.split(' ')[1]) {
+          con = contacts[i];
+          return con;
         }
       }
-       return undefined;
+   }, 
+   //removeContact(contact): takes a contact object to be removed from the contact-list.
+removeContact: function(contact) {
+  var x = [];
+  console.log(x);
+  for (var i = 0; i < contacts.length; i++) {
+    if (contacts[i] === contact)
+    //(!(contact["nameFirst"] === contacts[i].nameFirst && contact["nameLast"] === contacts[i].nameLast && contact['id'] === contacts[i].id)) {
+    contacts.splice(i, 1);
   }
-}
-}
 
+}
+}
+}
 
 
 
