@@ -60,7 +60,6 @@ function makeContactList() {
     }, //take a full name string and returns the contact object 
     findContact: function (fullName) {
       var con;
-      console.log(con);
       for (var i = 0; i <= contacts.length - 1; i++) {
         if (contacts[i].nameFirst === fullName.split(' ')[0] && contacts[i].nameLast === fullName.split(' ')[1]) {
           con = contacts[i];
@@ -70,8 +69,6 @@ function makeContactList() {
    }, 
    //removeContact(contact): takes a contact object to be removed from the contact-list.
 removeContact: function(contact) {
-  var x = [];
-  console.log(x);
   for (var i = 0; i < contacts.length; i++) {
     if (contacts[i] === contact)
     //(!(contact["nameFirst"] === contacts[i].nameFirst && contact["nameLast"] === contacts[i].nameLast && contact['id'] === contacts[i].id)) {
@@ -79,7 +76,19 @@ removeContact: function(contact) {
   }
 
 },
-//addAllContacts
+// add a printAllContactNames() Function to your makeContactList() factory. The printAllContactNames() Function should 
+//  *         return a String formated with all the full-names of the separated 
+//  *         with a line-break, like so:
+// myContacts.printAllContactNames(); // => Max Gaudin
+// *                                        John Fraboni
+// *                                        Kaelyn Chresfield
+printAllContactNames: function() {
+  var string = '';
+  for (var i = 0; i < contacts.length; i++) {
+    string += contacts[i]['nameFirst'] + ' ' + contacts[i]['nameLast'] + '\n';
+  }
+  console.log(string);
+}
 }
 }
 

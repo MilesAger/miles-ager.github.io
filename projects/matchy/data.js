@@ -17,7 +17,7 @@ var animal = {};
 //  using **dot notation** give `animal` a **property** named `species` with a value of any animal species.
 animal.species = 'dog';
 //   Using **bracket notation** give `animal` a **property** called `name` with a value of your animal`s name.
-animal['name'] = 'spot';
+animal['name'] = 'Beans';
 //  Using either notation, give `animal` a **property** called `noises` with a value of empty array.
 animal.noises = [];
 //  6. printing `animal` Object to the console by adding, `console.log(animal);`,
@@ -83,7 +83,25 @@ console.log(animal);
 //////////////////////////////////////////////////////////////////////
 // Step 6 - A Collection of Animals //////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+// Create a variable named `animals` and assign it to an empty array.
+var animals = [];
+// `push` our `animal` that we created to `animals`. You should now see your first animal appear on your `index.html` page!
+animals.push(animal); 
+// `console.log` `animals`. What does it look like?
+console.log(animals);
+// Create a variable called `duck` and assign it to the data `{ species: 'duck', name: 'Jerome', noises: ['quack', 'honk', 'sneeze', 'woosh'] }`
+var duck = { species: 'duck', name: 'Jerome', noises: ['quack', 'honk', 'sneeze', 'woosh'] };
+// `push` `duck` to `animals`
+animals.push(duck);
+//  `console.log` `animals`. What does it look like?
+console.log(animals);
+//  Create two more animal objects each with a species, a name, and at least two sounds sounds and add each one of them to `animals.
+var cat = {species: 'cat', name: 'Garbage', noises: ['meow', 'pur', 'reeeeeer', 'hiss'] };
+var chicken = {species: 'chicken', name: 'Cluck Norris', noises: ['cluck', 'bacaw', 'chuck', 'Cockadoodledoo'] };
+animals.push(cat, chicken);
+// `console.log` `animals`, and, `console.log` the length of `animals`. Is everything looking right?
+console.log(animals);
+console.log(animals.length);
 
 
 //////////////////////////////////////////////////////////////////////
