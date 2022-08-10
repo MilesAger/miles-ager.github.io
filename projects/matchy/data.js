@@ -34,7 +34,7 @@ console.log(animal);
 // Createing a variable named `noises` and assign it to an empty array.
 var noises = [];
 //  Using **bracket notation** to give `noises` it's first element. A string representing a sound your animal might make.
-noises.push('bark');
+noises[0] = ('bark');
 //  Using an array function will add another noise to the end of `noises`.
 noises.push('woof');
 //  6. [ ] Add an element to `noises` using unshift.
@@ -107,7 +107,37 @@ console.log(animals.length);
 //////////////////////////////////////////////////////////////////////
 // Step 7 - Making Friends ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
+// Choosing array as the data type 
+//  I chose array because I prefer to use arrays to store objects
+//   Create a variable called `friends` and assign it to the data structure that you chose.
+var friends = [];
+// 4. [ ] Take a look at the documentation for `Math.random` here: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+// 5. [ ] Write a function called `getRandom` that takes our `animals` array and returns  a random `index` of the input array, using `Math.random`
+function getRandom(animals) {
+  var x = 0;
+  x = animals[animals.length * Math.random() | 0];
+  return animals.indexOf(x);
+}
+var x = getRandom(animals)
+console.log(x);
+// 6. [ ] Using a random index from this function that you just created, get a random animal and add its `name` to `friends`.
+for (var i = 0; i < animals.length; i++) {
+  animals[i].friends = [];
+}
+console.log(animals);
+friends.push(animals[x].name);
+// 7. [ ] `console.log` `friends`.
+console.log(friends);
+// 8. [ ] Using **bracket notation**, add the `friends` list as a **property** also named `friends` on one of the animals in the `animals` array
+animals.friends = [];
+console.log(animals);
+if (animals[0]['name'] !== friends) {
+animals[0]['friends'] = friends; }
+else 
+{animals[1]['friends'] = friends;}
 
+// 9. [ ] `console.log` your work.
+console.log(animals);
 
 
 /**
