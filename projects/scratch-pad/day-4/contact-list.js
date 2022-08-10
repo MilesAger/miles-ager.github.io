@@ -87,11 +87,11 @@ printAllContactNames: function() {
   for (var i = 0; i < contacts.length; i++) {
     string += contacts[i]['nameFirst'] + ' ' + contacts[i]['nameLast'] + '\n';
   }
-  console.log(string.trim());
+  return string.trim();
 }
 }
 }
-myContacts.printAllContactNames();
+// makeContactList.printAllContactNames();
 
 
 // YOUR CODE GOES ABOVE HERE //
