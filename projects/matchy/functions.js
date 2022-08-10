@@ -87,7 +87,9 @@ function add(array, object) {
         }
     }
 }
-array.push(object);
+if (objectAbsent) {
+    array.push(object)
+}
 }
 console.log(animals);
 //  This is called **data validation** and it's extremely important in web development!
