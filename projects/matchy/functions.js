@@ -77,17 +77,17 @@ for (var i = 0; i < array.length; i++) {
 //     - Has a **unique** name, meaning no other animals have that name.
 //     - Adds this new Object to the `animals` Array, **only** if all the other conditions pass.
 //     - Make sure it works.
-function add(array, object) {
-    var objectAbsent = true;
-    if (object.name.length > 0 && object.species.length > 0) {
-    for (var i = 0; i < array.length; i++) {
-        if (array[i].name === object.name) {
+function add(array, object) { //taking array and object as parameters 
+    var objectAbsent = true; //sets value of variable objectAbsent to true
+    if (object.name.length > 0 && object.species.length > 0) { //testing object.name and object.species to see if there is value present.
+    for (var i = 0; i < array.length; i++) { //for loop followed by if conditional. 
+        if (array[i].name === object.name) { // looping through objects in array to see if name key matches name key of object.
             objectAbsent = false; 
             break;
         }
     }
 }
-if (objectAbsent) {
+if (objectAbsent) { //if conditional testing whether objectAbsent has value of true or false.
     array.push(object)
 }
 }
