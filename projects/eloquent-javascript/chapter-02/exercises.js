@@ -35,11 +35,24 @@ else {console.log(i)} //print number if no other conditional.
 ////////////////////////////////////////////////////////////////////////////////
 // drawChessboard //////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
-
-function drawChessboard() {
-
+//parameter is a number 
+function drawChessboard(num) {
+  //drawing a chess set using alternating strings of ' # # # #', and '# # # # '
+  //using for loop. 
+  var chess = [];
+  for (var i = 0; i < num; i++) {
+    if (num === 1) {
+      chess.push(' ');
+    }
+    else if (i % 2 === 0) { //even push this to chess
+      chess.push(' #'.repeat(~~(num / 2)));
+    }
+    else
+   {chess.push('# '.repeat(~~(num / 2)))} //odd push this to chess
+  }
+return chess.join('\n');//return chess with values all pushed to new lines
 }
-
+console.log(drawChessboard(1));
 ////////////////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////

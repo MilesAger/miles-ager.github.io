@@ -2,6 +2,8 @@
 // Function 1 - Object Values ////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+const { set } = require("lodash");
+
 function objectValues(object) {
 return Object.values(object);
 } 
@@ -96,40 +98,74 @@ return 'there are no noises';
 //////////////////////////////////////////////////////////////////////
 //Should take a string of words and a word and return true if <word> is in <string of words>, otherwise return false."
 function hasWord(string, word) {
-    var outcome = true;
-
+    var outcome = false;
+    for (var i = 0; i < string.length; i++) {
+        if (string.split(' ').includes(word)) {
+            outcome = true;
+        }
+    }
+    return outcome; 
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 11 - Add Friend //////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
-function addFriend (name, object) {
-
+// Should take a name and an object and add the name to the object's friends array then return the object 
+function addFriend (name, object) {//2 parameters
+    object.friends.push(name); //pushes name to friends array.
+    return object; //returning object. 
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 12 - Is Friend ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
-function isFriend(name, object) {
-
+//Should take a name and an object and return true if <name> is a friend of <object> and false otherwise
+function isFriend(name, object) {  
+if (arrayOrObject(object.friends) === 'array' && object.friends.includes(name)) { //test if array or object and then if name is present in friends key.
+    return true;
+} 
+else {
+    return false;}
 }
+
 
 //////////////////////////////////////////////////////////////////////
 // Function 13 - Non-Friends /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+//Should take a name and a list of people, and return a list of all the names that <name> is not friends with
 function nonFriends(name, array) {
+    //creating loop for array
+    var list = [];
+for (var i = 0; i < array.length; i++) {
+    if (name !== array[i].name) {
+if (!array[i].friends.includes(name)) {
+list.push(array[i].name)
+}
 
 }
+}
+return list;
+}
+
 
 //////////////////////////////////////////////////////////////////////
 // Function 14 - Update Object ///////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+//Should take an object, a key and a value. Should update the property <key> on <object> with new <value>. If <key> does not exist on <object> create it.
 function updateObject(object, key, value) {
-
+    //takes object key and value
+    //have to first test if key exists.
+    if (!object.hasOwnProperty(key)) {
+        //if key is present need to update prperty key with new value
+        object[key] = value; 
+    } else { 
+    for (keys in object) {
+        if (keys === key) {
+            object[keys] = value;
+        }
+    } 
+    }
+    return object;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -137,7 +173,18 @@ function updateObject(object, key, value) {
 //////////////////////////////////////////////////////////////////////
 
 function removeProperties(object, array) {
-
+//Should take an object and an array of strings. Should remove any properties on <object> that are listed in <array>
+//creating for loop to loop through array
+for ( var i = 0; i < array.length; i++) {
+    //creating an in loop to find key in object
+for (var keys in object) {
+    if (array[i] === keys) {
+        //deleting object key if key matches array[i]
+        delete object[keys];
+    } 
+}
+}
+return object;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -145,6 +192,8 @@ function removeProperties(object, array) {
 //////////////////////////////////////////////////////////////////////
 
 function dedup(array) {
+// Should take an array and return an array with all the duplicates removed
+return [...new Set(array)];
 
 }
 
