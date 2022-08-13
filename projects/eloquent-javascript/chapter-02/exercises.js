@@ -36,23 +36,31 @@ else {console.log(i)} //print number if no other conditional.
 // drawChessboard //////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 //parameter is a number 
-function drawChessboard(num) {
-  //drawing a chess set using alternating strings of ' # # # #', and '# # # # '
-  //using for loop. 
-  var chess = [];
-  for (var i = 0; i < num; i++) {
-    if (num === 1) {
-      chess.push(' ');
+ function drawChessboard(num){
+    var chess = []
+    //creating for loop
+    for (var i = 0; i < num; i++) 
+    {        
+
+        //creating loop within loop for pattern of each line
+        for (var j = 0; j < num; j++) 
+        {
+        if((i + j) % 2 === 0)
+        {
+        chess  += ' '
+        }
+        else
+        {
+        chess  += '#'
+        }
+        
     }
-    else if (i % 2 === 0) { //even push this to chess
-      chess.push(' #'.repeat(~~(num / 2)));
-    }
-    else
-   {chess.push('# '.repeat(~~(num / 2)))} //odd push this to chess
-  }
-return chess.join('\n');//return chess with values all pushed to new lines
+    chess += '\n'
 }
-console.log(drawChessboard(1));
+return chess;
+}
+
+console.log(drawChessboard(8));
 ////////////////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
