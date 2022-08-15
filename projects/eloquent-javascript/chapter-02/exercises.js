@@ -41,10 +41,9 @@ else {console.log(i)} //print number if no other conditional.
     //creating for loop
     for (var i = 0; i < num; i++) 
     {        
-
+        
         //creating loop within loop for pattern of each line
-        for (var j = 0; j < num; j++) 
-        {
+        for (var j = 0; j < num; j++) {
         if((i + j) % 2 === 0)
         {
         chess  += ' '
@@ -56,11 +55,11 @@ else {console.log(i)} //print number if no other conditional.
         
     }
     chess += '\n'
-}
+} console.log(chess)
 return chess;
 }
 
-console.log(drawChessboard(8));
+console.log(drawChessboard(7));
 ////////////////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
