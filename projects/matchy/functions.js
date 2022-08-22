@@ -30,7 +30,7 @@ function search(array, string) {
     }
     return null;
 }
-console.log(search(animals, ));
+//console.log(search(animals, ));
 
 
 //////////////////////////////////////////////////////////////////////
