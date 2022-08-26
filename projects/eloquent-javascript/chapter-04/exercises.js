@@ -2,7 +2,11 @@
 // range ///////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function range() {
+function range(x, y) {
+  if (x === y){
+    return [];
+  }
+  else if ( )
 
 }
 
@@ -34,8 +38,13 @@ function reverseArrayInPlace() {
 // arrayToList /////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function arrayToList() {
-
+function arrayToList(array) {
+let rest = null;
+//iterate backwards
+for( let i = array.length - 1; i >=0; i--){
+  rest = {value: array[i], rest: rest};
+}
+return rest;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -66,8 +75,27 @@ function nth() {
 // deepEqual ///////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function deepEqual() {
-
+function deepEqual(x, y) {
+//deterime if x and y are not objects
+if (typeof x !== 'object' && typeof y !== 'object'){
+  return x === y;
+}
+if (typeof x !== 'object' || typeof y !== 'object'){
+  return false;
+}
+//both items are objects
+//determine if objects are same length
+let xKeys = Object.keys(x);
+let yKeys = Object.keys(y);
+if (xKeys.length !== yKeys.length){
+  return false;
+}
+for (let i = 0; i < xKeys.length; i++){
+  if (!yKeys.include(xKeys[i]) || !deepEqual(x[xKeys[i]], y[xKeys[i]])){
+    return false;
+  }
+}
+return true;
 }
 
 ////////////////////////////////////////////////////////////////////////////////

@@ -38,19 +38,62 @@ var _ = require('underbar');
 var maleCount = function(array) {
     //looping through array to return number of male objects.
     let males;
-    males = _.filter(array, function(array) {
-            if (array[i].gender === "male") {
-                return true;
-            }
-        })
+    males = _.filter(array, function(element, i, array) {
+           return (element.gender === "male")
+            
+        });
      return males.length
     }
 
 
-var femaleCount;
+var femaleCount = function(array) {
+    //looping through array to return number of male objects.
+    let female;
+    female = _.filter(array, function(element, i, array) {
+           return (element.gender === "female")
+            
+        });
+     return female.length
+    }
 
-var oldestCustomer;
+//     `oldestCustomer`
+//  - **Objective**: Find the oldest customer's name
+//  - **Input**: `Array`
+//  - **Output**: `String`
+//  - **Constraints**:
 
+// _.map = function(collection, func) {
+//     //call function for each element in collection parameter.
+//     let output = [];
+// if(Array.isArray(collection)){
+//     for (let i = 0; i < collection.length; i++) { 
+//         output.push(func(collection[i], i, collection)); 
+// }
+// } else { 
+//     for (let key in collection) {
+//         output.push(func(collection[key], key, collection));
+//     }
+// }
+// return output;
+//     //if collection is array, elemet 
+// }
+
+var oldestCustomer = function(array){
+    var ageM = [];
+    var name = '';
+    ageM = _.reduce(array, function(seed, element, i){
+        if (element.age > seed){
+            seed = element.age;
+        } else if (element.age )
+    })
+    console.log(ageM);
+        name += _.map(array, function(element, i, collection){
+            if (element.age === ageM){
+                return element.name;
+            }
+        })
+    return name;
+}
 var youngestCustomer;
 
 var averageBalance;
