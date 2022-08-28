@@ -79,24 +79,49 @@ var femaleCount = function(array) {
 // }
 
 var oldestCustomer = function(array){
-    var ageM = [];
-    var name = '';
-    ageM = _.reduce(array, function(seed, element, i){
-        if (element.age > seed){
-            seed = element.age;
-        } else if (element.age )
-    })
-    console.log(ageM);
-        name += _.map(array, function(element, i, collection){
-            if (element.age === ageM){
-                return element.name;
-            }
-        })
-    return name;
+   //attempting to use .reduce function to 
+   let total = 0;
+   let OldestPerson = '';
+  array.reduce((prev, curr) => {
+    if ((curr.age) > total) {
+      total = (curr.age);
+      OldestPerson = curr.name
+    }
+    return prev;
+  })
+  return OldestPerson
 }
-var youngestCustomer;
 
-var averageBalance;
+var youngestCustomer = function(array){
+  //attempting to use .reduce function to 
+  let total = 100;
+  let youngest = '';
+ array.reduce((prev, curr) => {
+   if ((curr.age) < total) {
+     total = (curr.age);
+     youngest = curr.name
+   }
+   return prev;
+ })
+ return youngest;
+};
+
+var averageBalance = function(array){
+  var total = 0;
+  for(var i = 0; i < array.length; i++) {
+      total += Number(array[i].balance.replace(/[$,]/g, ''));
+
+  }
+ 
+ return total / array.length;
+}
+
+
+// (array) => {let average = array.reduce((a.balance, b.balance) => { 
+//   (a.balance + b.balance)}); 
+//   average /= array.length;
+// return average;
+// }
 
 var firstLetterCount;
 

@@ -123,19 +123,25 @@ else if(output < 1){
 // 9. Write a function that accepts a string a reverses it.
 var reverse = function(string, output='') {
   //base
-if (string.length === 1){
-  return output + string[0];
-} else {
-   //recursion
-  output += string[string.length-1];
-  reverse(string.slice(string.length - 1), output);
-}
+if (!string.length){
+  return string;
+} 
+return reverse(string.substr(1)) + string.charAt(0);
   //recursion
 };
 
 console.log(reverse('apple'));
 // 10. Write a function that determines if a string is a palindrome.
 var palindrome = function(string) {
+  //base
+if (!string.length || string.length === 1 || string.length === 2){
+  return true;
+}
+//recursion
+if (string[0].toLowerCase() !== string[string.length - 1].toLowerCase()){
+  return false;
+}
+  return palindrome(string.slice(1, -1));
 };
 
 // 11. Write a function that returns the remainder of x divided by y without using the
