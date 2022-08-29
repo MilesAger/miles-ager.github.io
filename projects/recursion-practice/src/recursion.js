@@ -149,18 +149,41 @@ if (string[0].toLowerCase() !== string[string.length - 1].toLowerCase()){
 // modulo(5,2) // 1
 // modulo(17,5) // 2
 // modulo(22,6) // 4
-var modulo = function(x, y) {
+var modulo = function(x, y, output) {
+  //base
+  if(output){
+    return output;
+  }
+  //recursion
+  num1 = x / y;
+  output = (num1 - 1) * y;
+  return modulo(x, y, output);
 };
 
 // 12. Write a function that multiplies two numbers without using the * operator  or
 // JavaScript's Math object.
 // ATTENTION DO NOT LEAVE COMMENTS IN THIS FUNCTION. The test is looking for any ('/').
-var multiply = function(x, y) {
+var multiply = function(x, y, output = 0) { 
+
+  if (x === 0 || y === 0){
+    return output;
+  }
+
+  if ((y > 0 && x > 0) || (y > 0 && x < 0)){
+    output += x;
+    return multiply(x, (y - 1), output);
+  
+  } else {
+    output -= x;
+  return multiply(x, (y + 1), output);
+}
 };
+
 
 // 13. Write a function that divides two numbers without using the / operator  or
 // JavaScript's Math object.
 var divide = function(x, y) {
+
 };
 
 // 14. Find the greatest common divisor (gcd) of two positive numbers.  The GCD of two
@@ -177,34 +200,92 @@ var gcd = function(x, y) {
 // compareStr('', '') // true
 // compareStr('tomato', 'tomato') // true
 var compareStr = function(str1, str2) {
+  //base
+  if (str1.length === 0 && str2.length === 0){
+    return true;
+  } else if (str1.length === 0 || str2.length === 0) {
+    return false;
+  }
+  if (str1[0] === str2[0]){
+    return compareStr(str1.substr(1), str2.substr(1));
+  } else {
+    return false;
+  }
+  //recursion
 };
 
 // 16. Write a function that accepts a string and creates an array where each letter
 // occupies an index of the array.
-var createArray = function(str){
-};
+var createArray = function(str, output = []){
+  //base
+  if (Array.isArray(str)){
+    return true;
+  }
+  else if (str.length === 0){
+    return output;
+  } else {
+    output.push(str[0]);
+    return createArray(str.substr(1), output);
+  }
 
+  //recursion
+};
 // 17. Reverse the order of an array
-var reverseArr = function (array) {
+var reverseArr = function (array, output = []) {
+  //base
+  if (array.length === 1){
+    output.push(array[0]);
+    return output;
+  }
+  //recursion
+  output.push(array.pop());
+  return reverseArr(array, output);
 };
 
 // 18. Create a new array with a given value and length.
 // buildList(0,5) // [0,0,0,0,0]
 // buildList(7,3) // [7,7,7]
-var buildList = function(value, length) {
+var buildList = function(value, length, output = []) {
+  //base
+  if (length === 0){
+    return output;
+     //recursion
+  } else {
+    output.push(value);
+    return buildList(value, length -1, output);
+  }
 };
 
 // 19. Count the occurence of a value inside a list.
 // countOccurrence([2,7,4,4,1,4], 4) // 3
 // countOccurrence([2,'banana',4,4,1,'banana'], 'banana') // 2
-var countOccurrence = function(array, value) {
+var countOccurrence = function(array, value, output = 0) {
+  //base
+if (array.length === 1){
+if (array[0] === value){  
+return output += 1;
+} else {
+  return output;
+}
+}
+ //recursion
+ if (array[0] === value){
+  output += 1;
+  return countOccurrence(array.slice(1), value, output);
+ } else {
+  return countOccurrence(array.slice(1), value, output);
+ }
 };
+
 
 // 20. Write a recursive version of map.
 // rMap([1,2,3], timesTwo); // [2,4,6]
-var rMap = function(array, callback) {
+var  rMap = function(array, callback) {
+  if (array.length === 0) return [];
+  let list =rMap(array.slice(1, array.length), callback);
+  list.unshift(callback(array[0]));
+  return list;
 };
-
 // 21. Write a function that counts the number of times a key occurs in an object.
 // var testobj = {'e': {'x':'y'}, 't':{'r': {'e':'r'}, 'p': {'y':'r'}},'y':'e'};
 // countKeysInObj(testobj, 'r') // 1
@@ -238,17 +319,40 @@ var fibonacci = function(n) {
 // nthFibo(7); // 13
 // nthFibo(3); // 2
 var nthFibo = function(n) {
-};
-
+  //base
+  if (n < 0){
+    return null;
+  }
+  if (n < 2){
+    return n;
+} else {
+    return nthFibo(n-2) + nthFibo(n-1);
+}
+}
+console.log(nthFibo(5));
 // 26. Given an array of words, return a new array containing each word capitalized.
 // var words = ['i', 'am', 'learning', 'recursion'];
 // capitalizedWords(words); // ['I', 'AM', 'LEARNING', 'RECURSION']
-var capitalizeWords = function(input) {
+var capitalizeWords = function(array) {
+  if (array.length === 1) {
+    return [array[0].toUpperCase()];
+  }
+  let arr = capitalizeWords(array.slice(0, -1));
+  arr.push(array.slice(array.length - 1)[0].toUpperCase())
+  return arr;
 };
 
 // 27. Given an array of strings, capitalize the first letter of each index.
 // capitalizeFirst(['car', 'poop', 'banana']); // ['Car', 'Poop', 'Banana']
-var capitalizeFirst = function(array) {
+var capitalizeFirst = function(array, output = []) {
+  if (array.length === 0){
+    return output;
+  } else {
+    let a = array[0].charAt(0).toUpperCase(); 
+    let b = array[0].slice(1);
+    output.push(a + b);
+    return capitalizeFirst(array.slice(1), output);
+  }
 };
 
 // 28. Return the sum of all even numbers in an object containing nested objects.
@@ -270,7 +374,19 @@ var flatten = function(arrays) {
 
 // 30. Given a string, return an object containing tallies of each letter.
 // letterTally('potato'); // {'p':1, 'o':2, 't':2, 'a':1}
-var letterTally = function(str, obj) {
+var letterTally = function(str, obj = {}) {
+  var length = str.length;
+  var current = str.charAt(0);
+  if (length === 0) {
+    return obj;
+  } else if (obj[current]) {
+    obj[current] ++;
+  } else {
+    obj[current] = 1;
+  }
+
+  return letterTally(str.slice(1), obj);
+
 };
 
 // 31. Eliminate consecutive duplicates in a list.  If the list contains repeated
@@ -278,8 +394,11 @@ var letterTally = function(str, obj) {
 // elements should not be changed.
 // Example: compress([1, 2, 2, 3, 4, 4, 5, 5, 5]) // [1, 2, 3, 4, 5]
 // Example: compress([1, 2, 2, 3, 4, 4, 2, 5, 5, 5, 4, 4]) // [1, 2, 3, 4, 2, 5, 4]
-var compress = function(list) {
-};
+var compress = ([list, ...rest]) => {
+  if (!list) return [];
+  const tail = compress(rest);
+  return list === tail[0] ? tail : [list, ...tail];
+}
 
 // 32. Augment every element in a list with a new value where each element is an array
 // itself.
