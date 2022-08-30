@@ -122,16 +122,117 @@ var averageBalance = function(array){
 //   average /= array.length;
 // return average;
 // }
+// `firstLetterCount`
+//  - **Objective**: Find how many customer's names begin with a given letter
+//  - **Input**: `Array`, `Letter`
+//  - **Output**: `Number`
+//  - **Constraints**:
+var firstLetterCount = function(array, letter, output = 0){
+  if (array.length === 0){
+    return output;
+  }
+  if(array[0].name.charAt(0).toLowerCase() === letter.toLowerCase()){
+    output += 1;
+    return firstLetterCount(array.slice(1), letter, output);
+  } else {
+    return firstLetterCount(array.slice(1), letter, output);
+  }
+}
+// `friendFirstLetterCount`
+//  - **Objective**: Find how many friends of a given customer have names that start with a given letter
+//  - **Input**: `Array`, `Customer`, `Letter`
+//  - **Output**: `Number`
+//  - **Constraints**:
+var friendFirstLetterCount = function(array, customer, letter){
+  let output = 0;
+  let custObj = array.filter(function(element, i, array){
+    if (element.name.toLowerCase() === customer.toLowerCase()){
+      return true
+    } else {
+      return false;
+    }
+  })
+  for (var i = 0; i < custObj[0].friends.length; i++){
+if (custObj[0].friends[i].name.charAt(0).toLowerCase() === letter.toLowerCase()){
+output += 1;
+} else {
+  output += 0;
+}
+  }
+    return output;
+  }
 
-var firstLetterCount;
+  // `friendsCount`
+  // - **Objective**: Find the customers' names that have a given customer's name in their friends list
+  // - **Input**: `Array`, `Name`
+  // - **Output**: `Array`
+  // - **Constraints**:
+  var friendsCount = function(array, name){
+    let output = [];
+    for (var i = 0; i < array.length; i++){
+      _.filter(array[i].friends, function(element){
+      if (element.name === name){
+        output.push(array[i].name);
+      }
+    })
+  }
+  return output;
+}
 
-var friendFirstLetterCount;
+// `topThreeTags`
+//  - **Objective**: Find the three most common tags among all customers' associated tags
+//  - **Input**: `Array`
+//  - **Output**: `Array`
+//  - **Constraints**:
+var topThreeTags = function(array){
+ var output = [];
+  //for loop within for loop
+for (var i = 0; i < array.length; i++){
+  for (var j = 0; j < array[i].tags.length; j++){
+output.push(array[i].tags[j]); 
+  }
+}
+var counts = {};
+output.forEach(function (x) {
+   counts[x] = (counts[x] || 0) + 1; });
+let stuff = [];
+for (var keyNum in counts){
+  stuff.push([keyNum, counts[keyNum]]);
+}
+  stuff.sort(function(a, b){
+     return b[1] - a[1];
+    });
 
-var friendsCount;
+  let final = [];
+  final.push(stuff[0][0]); 
+  final.push(stuff[1][0]);
+  final.push(stuff[2][0]);
+return final;
+}
 
-var topThreeTags;
+var genderCount = function(array){
 
-var genderCount;
+//creating object to return with gender values
+ 
+var male = 0
+var female = 0
+var nonbinary = 0 
+  //loop to loop through array and find # of each gender
+  for (var i = 0; i < array.length; i++){
+    if (array[i].gender == 'male'){
+      male += 1;
+    } else if (array[i].gender == 'female'){
+      female += 1;
+    } else {
+      nonbinary += 1;
+    }
+  }
+  var genObj = {};
+  genObj.female = female;
+  genObj.male = male;
+  genObj['non-binary'] = nonbinary; 
+  return genObj;
+}
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
