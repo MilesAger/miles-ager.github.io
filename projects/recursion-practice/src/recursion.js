@@ -409,22 +409,119 @@ var augmentElements = function(array, aug) {
 // 33. Reduce a series of zeroes to a single 0.
 // minimizeZeroes([2,0,0,0,1,4]) // [2,0,1,4]
 // minimizeZeroes([2,0,0,0,1,0,0,4]) // [2,0,1,0,4]
-var minimizeZeroes = function(array) {
+var minimizeZeroes = function(array, output = []) {
+  //base
+if (array.length === 0){
+  return output;
+} 
+else if (output.length === 0){
+  output.push(array[0]);
+  return minimizeZeroes(array.slice(1), output);
+} 
+else if (output[output.length - 1] === array[0] && array[0] === 0){ 
+  return minimizeZeroes(array.slice(1), output);
+} else {
+  output.push(array[0]);
+  return minimizeZeroes(array.slice(1), output);
+}
+  //recursion
 };
 
 // 34. Alternate the numbers in an array between positive and negative regardless of
 // their original sign.  The first number in the index always needs to be positive.
 // alternateSign([2,7,8,3,1,4]) // [2,-7,8,-3,1,-4]
 // alternateSign([-2,-7,8,3,-1,4]) // [2,-7,8,-3,1,-4]
-var alternateSign = function(array) {
+var alternateSign = function(array, output = []) {
+  //base
+  if (array.length ===0){
+    return output;
+  } //recursion
+  else if (output.length === 0 && array[0] > 0){
+    output.push(array[0])
+    return alternateSign(array.slice(1), output);
+  } 
+  else if (output.length === 0 && array[0] < 0){
+    output.push(-array[0]);
+    return alternateSign(array.slice(1), output);
+  } 
+  else if (array[0] < 0 && output[output.length-1] < 0){
+    output.push(-array[0]);
+    return alternateSign(array.slice(1), output);
+  }
+  else if (array[0] < 0 && output[output.length-1] > 0){
+    output.push(array[0])
+    return alternateSign(array.slice(1), output);
+  }
+  else if (array[0] > 0 && output[output.length-1] > 0){
+    output.push(-array[0])
+    return alternateSign(array.slice(1), output);
+  }
+  else if (array[0] > 0 && output[output.length-1] < 0){
+    output.push(array[0])
+    return alternateSign(array.slice(1), output);
+
+}
 };
 
 // 35. Given a string, return a string with digits converted to their word equivalent.
 // Assume all numbers are single digits (less than 10).
 // numToText("I have 5 dogs and 6 ponies"); // "I have five dogs and six ponies"
-var numToText = function(str) {
+var numToText = function(str, output = []) {
+  var num = ['zero','one','two','three','four',
+  'five','six','seven','eight','nine'];
+  if (str.split('').length === 0){
+    return output.join('').toString();
+  }
+  if (str.split('')[0] === '0'){
+    output.push(num[0]);
+    return numToText(str.substr(1), output);
+  }
+  else if (str.split('')[0] == 1){
+    output.push(num[1]);
+    return numToText(str.substr(1), output);
+  }
+  else if (str.split('')[0] == 2){
+    output.push(num[2]);
+    return numToText(str.substr(1), output);
+  }
+  else if (str.split('')[0] == 3){
+    output.push(num[3]);
+    return numToText(str.substr(1), output);
+  }
+  else if (str.split('')[0] == 4){
+    output.push(num[4]);
+    return numToText(str.substr(1), output);
+  }
+  else if (str.split('')[0] == 5){
+    output.push(num[5]);
+    return numToText(str.substr(1), output);
+  }
+  else if (str.split('')[0] == 6){
+    output.push(num[6]);
+    return numToText(str.substr(1), output);
+  }
+  else if (str.split('')[0] == 7){
+    output.push(num[7]);
+    return numToText(str.substr(1), output);
+  }
+  else if (str.split('')[0] == 8){
+    output.push(num[8]);
+    return numToText(str.substr(1), output);
+  }
+  else if (str.split('')[0] == 9){
+    output.push(num[9]);
+    return numToText(str.substr(1), output);
+  } 
+  else if (str.split('') == ' '){
+  output.push(' '); 
+  return numToText(str.substr(1), output);
+  }
+  else { 
+    output.push(str.split('')[0])
+    return numToText(str.substr(1), output);
+  }
 };
-
+console.log(numToText("I have 5 dogs and 6 ponies"));
 // *** EXTRA CREDIT ***
 
 // 36. Return the number of times a tag occurs in the DOM.
