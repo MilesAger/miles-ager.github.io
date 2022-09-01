@@ -32,21 +32,46 @@ function loop(max, min, inc, func) {
     func(i);
   }
 }
-loop(3, n => n > -3, n => n - 1, console.log);
+
 
 // /////////////////////////////////////////////////////////////////////////////
 // every ///////////////////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
-function every() {
-
+function every(array, test) {
+  for (let i = 0; i < array.length; i++){
+   if (!test(array[i])){
+    return false;
+  }
 }
+  return true;
+}
+console.log(every([1, 3, 5], n => n < 10))
 
 // /////////////////////////////////////////////////////////////////////////////
 // dominantDirection ///////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
-function dominantDirection() {
+function dominantDirection(string) {
+  let ltr = [];
+  let rtl = [];
+
+  for (let i = 0; i < string.length; i++){
+    let scriptName = characterScript(string.charCodeAt(i));
+
+    if (scriptName !== null){
+      if (scriptName.direction === 'ltr'){
+        ltr.push(scriptName);
+      } else {
+        rtl.push(scriptName);
+      }
+    }
+  }
+  if (ltr.length> rtl.length){
+    return 'ltr';
+  } else {
+    return 'rtl';
+  }
 
 }
 
