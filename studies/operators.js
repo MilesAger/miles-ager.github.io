@@ -1,9 +1,9 @@
 // Operators
 // 0. Operators are used to perform an operation on a single or multiple data value(s) (or operands) to produce a result. Below I will show through examples how Operators are able to act on variables in our code.
-// 1. Assignment Operator the ( = ) sign is used in initiallizing variables as seen below.
+// 1. Assignment Operator the ( = ) sign is used in initializing variables as seen below.
 var a = '';
 // using the assignment operator, I have assigned the variable a to an empty string.
-// 2. Arithmetic Operators are used almost exclusively with numbers to purform simple math. 
+// 2. Arithmetic Operators are used almost exclusively with numbers to perform simple math. 
 //    Arithmetic Operators include ( + ) - plus, ( - ) - minus, ( * ) - multiplication, ( / ) - division, and ( % ) - modulo - returns remainder of division. see examples below
 var num1 = 0;
 num1 + 5;
@@ -32,15 +32,15 @@ console.log(1 == '1'); //should log true;
 console.log(1 != '1'); // should log false; 
 // 4. Logical Operators ( && ) - AND operator, ( || ) - OR operator, are often used along with comparison operators to compare multiple values within a conditional statement. example seen below
 console.log(1 > 0 && 2 < 1); // this will result in false.
-//the AND operator will return false if either one of the coditions is false.  
+//the AND operator will return false if either one of the conditions is false.  
 console.log(1 > 0 || 2 < 1); // this will result in true.
 //the OR operator will return true if either one of the conditions is true.
 // 5. Unary Operators ( typeof ) - typeof operand ( ! ) - bang operator, only work with one value.
 console.log(typeof 'happy'); // this will result in 'string'
 // typeof operand will return the value's data type in a string,
 console.log(!1 > 0); // this will result in false.
-//the bang operator will return the oposite boolean. if the condition is true, false will be returned, and if the condition is false, true will be returned.
-// 6. Ternary Operators is the only javascript operator that takes three operands. the Ternary is formated as followed: 
+//the bang operator will return the opposite boolean. if the condition is true, false will be returned, and if the condition is false, true will be returned.
+// 6. Ternary Operators is the only javascript operator that takes three operands. the Ternary is formatted as followed: 
 //    a condition followed by a (?), then an expression that tests if condition is true, followed by a (:), and the expression to execute if the condition is false. example below.
 var x = 10;
 var y = (x >= 5) ? x += 5 : x = 100;

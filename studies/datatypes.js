@@ -6,7 +6,7 @@
 // Numbers: can be written positive or negative, and with our without a decimal.
 var primitive = 1;
 console.log(primitive); //This will result in 1 printing to the console.
-// Strings: A collection of alphanumeric characters within either single quotes '', double quotes "", or backtick ``. each element in the string occupies a numerical possition of that string that correlates with the designated index number.
+// Strings: A collection of alphanumeric characters within either single quotes '', double quotes "", or backtick ``. each element in the string occupies a numerical position of that string that correlates with the designated index number.
 primitive = 'string';
 console.log(primitive);  // This will print string to the console.
 console.log(primitive[0]); // This will print s to the console.    
@@ -28,7 +28,7 @@ var infin = Infinity;
 var bigNum = 10000000; 
 console.log(bigNum > infin); //expect this to equal false;
 // 2. Non-Primitives
-// Object: is a complex data type that can store collections of properties defined as key-value pairs within closed curley brackets {}. The name of property keys are always represented by a string, but the value can be any data type. 
+// Object: is a complex data type that can store collections of properties defined as key-value pairs within closed curly brackets {}. The name of property keys are always represented by a string, but the value can be any data type. 
 var cookies = {
 color: 'brown',
 amount: 3,
@@ -37,13 +37,13 @@ console.log(object); //This will result in {color: 'brown', amount: 3, tasty: tr
 // arrays: arrays are a type of object used for holding multiple values in a single variable. Each value (also known as an element) of an array is associated with a numeric position designated by the index number. An array may contain any datatype. an array is created by inputting comma separated values within square brackets. 
 var array = [a, b, 1, true, 'hello'];
 console.log(array); //This will result in[a, b, 1, true, 'hello'] printing to the console.
-// Function: Functions are objects that can be called to excecute a block of code performing a specific task. functions are created using the keyword function, followed by a name, followed by parentheses (), followed by the block of code to be executed within curley brakets {}. functions can contain parameters within the parentheses. The parameters allow arguements to be fed into the function acting as local variables. a function is called (or invoked) by stating the function name followed by closed paratheses including arguements within the paratheses if the function has parameters. 
+// Function: Functions are objects that can be called to execute a block of code performing a specific task. functions are created using the keyword function, followed by a name, followed by parentheses (), followed by the block of code to be executed within curly brackets {}. functions can contain parameters within the parentheses. The parameters allow arguments to be fed into the function acting as local variables. a function is called (or invoked) by stating the function name followed by closed parenthesis including arguments within the parenthesis if the function has parameters. 
 function addTwo(number) {
 return number + 2;
 }
 console.log(addTwo(1)); //This will result in 3 printing to the console.
 // by copy vs by reference in a function.
-// Copy by value changes the value of a variable never alters the underlying primites or objects, a copy is just passed into the function.
+// Copy by value changes the value of a variable never alters the underlying primitives or objects, a copy is just passed into the function.
 var greet = 'HI';
 function copy(){
     var copy1 = greet;
@@ -53,11 +53,11 @@ function copy(){
 console.log(copy()); //expect to return 'I'm different'
 console.log(greet); //expect to return 'HI' 
 //The above variable copy1 was made and the value of greet copied to the new variable within the function scope. We are able to alter the copy without changing the variable greet.
-// Copy by reference will change the object that is refrenced. any changes made to the referenced object in the function will change the underlying object.
+// Copy by reference will change the object that is referenced. any changes made to the referenced object in the function will change the underlying object.
 var changed = 'I will change!';
 function copyRef(){
 changed = `I'm different`;
 }
 copyRef();
 console.log(changed); // expect to return 'I'm different'
-//due to the variable being refrenced instead of copyinging the value, the underlying object will be changed when the function is called.
+//due to the variable being referenced instead of copying the value, the underlying object will be changed when the function is called.

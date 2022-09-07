@@ -1,7 +1,7 @@
 // Control-flow +++++++++++++++++++++++++++
-// 0. conditional statements allow us to control the flow of our applicating. based on whether conditions are true or false, we are able to control whether a block of code runs.
-//    conditional statements are comparisons and/or values evaluted to either true or false.
-// 1. if, else-if, and else statements. These are the 3 keywords typically used in conditional statems. 
+// 0. conditional statements allow us to control the flow of our application. based on whether conditions are true or false, we are able to control whether a block of code runs.
+//    conditional statements are comparisons and/or values evaluated to either true or false.
+// 1. if, else-if, and else statements. These are the 3 keywords typically used in conditional statements. 
 // conditional statements will typically start with an if statement, followed by an else if statement to test other conditionals, followed by the else statement which has no conditional. an example of an if, else-if, else statement can be seen in the below example.
 var a = 10;
 
@@ -13,7 +13,7 @@ else if (a > 5 && a <= 10){
 } else {
     console.log('large');
 }; 
-//after this code is run 'medium' will be logged to the console. because the condition in the else if coindition is met. 
+//after this code is run 'medium' will be logged to the console. because the condition in the else if condition is met. 
 //The if, else-if, else statement can chain together any number of else-if statements to the first if. each conditional statement tests the condition in parenthesis () and then executes the code in the body if the condition is true.
 // 2. Switch Statements.
 // switch Statements can sometimes be a cleaner way to test a large amount of conditions.

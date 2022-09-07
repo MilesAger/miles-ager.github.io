@@ -27,7 +27,7 @@ var upper = str.toUpperCase();
 console.log(upper); //this will log 'STRING' to the console.
 var lower = upper.toLowerCase();
 console.log(lower); //This will log 'string' to the console. 
-//trim() will remove all whitespace from both side of string trimStart() will only remove from begining of string trimEnd() will only remove from end of string.
+//trim() will remove all whitespace from both side of string trimStart() will only remove from beginning of string trimEnd() will only remove from end of string.
 var trimmy = '                     I am spaced                    ';
 var trimmed = trimmy.trim();
 console.log(trimmed); //will log 'I am spaced' to the console.

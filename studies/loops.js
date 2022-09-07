@@ -1,8 +1,8 @@
 // Loops
-// 0. Loops in javascript are designed to excecute a block of code a designated number of times based on the three set expressions. 
+// 0. Loops in javascript are designed to execute a block of code a designated number of times based on the three set expressions. 
 // expression 1 - sets a variable before the loop starts. (let i = 0)
 // expression 2  - define the condition for the loop to run (i must be less than 10).
-// expression 3 - determines the incremental increases or decreases of the value each time the code block is run (i++) or (i--). expression 3 is optional and can be omitted if you increment or decrement the value inse the loop.
+// expression 3 - determines the incremental increases or decreases of the value each time the code block is run (i++) or (i--). expression 3 is optional and can be omitted if you increment or decrement the value inside the loop.
 // 1. While, for, and for-in loops:
 // The While loop will execute a block of code as long as the specified condition stated directly after the While keyword is true. the while loop is traditionally set up as seen below
 var a = 1;
@@ -32,7 +32,7 @@ for (let i = arr.length - 1; i >= 0; i--){
     console.log(arr[i]);
 }
 // this will log '$', 'b', 3, 1 to the console.
-// as seen above I am using the for loop to increment and decrement through an array. for loops like the one seen above, are most commonly used in relation to arrays since each array element has a corrisponding index number.
+// as seen above I am using the for loop to increment and decrement through an array. for loops like the one seen above, are most commonly used in relation to arrays since each array element has a corresponding index number.
 // in order to loop through objects we need a different kind of for loop, a for-in loop
 // For-in Loop +++++++++++++++
 // for-in loop statement loops through the properties of an object and executes the block of code for each property. 
