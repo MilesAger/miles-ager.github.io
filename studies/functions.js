@@ -30,7 +30,7 @@ var funky = function(){
 funky();
 // this will log 'assigning a function definition to variable is an example of why functions are first class object' to the console.
 // 4. Closure 
-// A function within a function is able to have references in its body to variables in the outer function's scope, but we can't access these variables outside the function. example below.
+// A function within a function is able to have references in its body to variables in the outer function's scope also known as the parent scope, but we can't access these variables outside the function. example below.
 function out(){
     var name = 'Tom';
     function inside(){ // when the function is called, this function becomes a closure.
@@ -41,11 +41,11 @@ function out(){
 out(); // results in one closure.
 // This will log 'Tom' to the console.
 // the inner function is a closure every time the function is called.  
-// closure allows for functions to encapsulate data, meaning that objects returned from a function can be held in memory while the data continues to exist in the closure. example below
+// closure allows for functions to encapsulate data, meaning that objects returned from a function can be held in the outer scope, also known as the parent scope, while the data continues to exist in the closure. example below
 function countBugs(){
     var bugNum = 0;
    return function(){
-        bugNum += 1;
+        bugNum += 1; 
         console.log(bugNum);
     }
 }
@@ -53,4 +53,6 @@ var oneBug = countBugs();
 oneBug();
 oneBug();
 oneBug();
-// the above code will result in 1, 2, 3 printing to the console. This shows that the closure found in the function countBugs allows for the updated bugNum value to be stored within the function after each function call occurs.
+// Here the inner function is accessing the variable bugNum in the parent scope, and modifying it's value. 
+// the above code will result in 1, 2, 3 printing to the console. This shows that the closure found in the function countBugs allows for the variable bugNum to be kept in the function scope. 
+// bugNum is only able to be modifyed when the function countBugs is called.

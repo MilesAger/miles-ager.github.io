@@ -7,7 +7,7 @@
 // 2. Variables are established first through the declaration phase which creates the variable. After a variable is declared, the next phase is assignment, which allows us to link the newly declared variable to a value. 
 // 3. Variables can also be hoisted. Hoisting refers to a characteristic of variables that allows the variable to be referenced before it is declared. 
 // 1. Declaration
-// Below, the variable aVariable Bvariable, and cVariable are established in the declaration phase. Since we have not assigned the variable at this point in the code, the variable will print as undefined if we console.log the variables declared with var and let.
+// Below, the variable aVariable bvariable, and cVariable are established in the declaration phase. Since we have not assigned the variable at this point in the code, the variable will print as undefined if we console.log the variables declared with var and let.
 var aVariable;
 let bVariable; // variables declared with let can't be declared again 
 const cVariable = 0;  //const must be initialized at the point of declaration
