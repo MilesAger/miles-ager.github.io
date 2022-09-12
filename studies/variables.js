@@ -34,7 +34,7 @@ var hoist = 1;
 let hoist2 = 1; 
 const hoist3 = 1; 
 //5. var, let, and const. Further clarified. 
-// i. declaration in the golobal scope/outside of functions
+// i. declaration in the global scope/outside of functions
 var xVariable;
 let yVariable; // variables declared with let can't be declared again 
 const zVariable = 0;  //const must be initialized at the point of declaration
@@ -49,9 +49,9 @@ let yVariable;
 const zVariable = 0;
 console.log(yVariable);
 console.log(zVariable);
- // when we run the code, we will get a refrence error on line 48 and 49 due to yVariable and zVariable already being declared.
+ // when we run the code, we will get a reference error on line 48 and 49 due to yVariable and zVariable already being declared.
 //  Using var outside a function variables declared with let can't be declared again const must be initialized at the point of declaration
-// ii. initialization in the Global Scope - a varaible created using var or let can be reinitialized, but a variable creating using const can't. As seen below
+// ii. initialization in the Global Scope - a variable created using var or let can be reinitialized, but a variable creating using const can't. As seen below
 var aa = 1;
 let bb = 2;
 const cc = 3;
@@ -84,8 +84,8 @@ function isA(){
 isA();
 //when the above function is called, the variable aa will be the only one that will be logged to the console as undefined. 
 //This is because variables declared with var are accessible throughout the whole function. 
-// even though bb and cc are within a block scope that has a truthy conditional statement, a reference error will log to the console, because those variables declared with let and const only exsit within the curley brackets {} after the conditional. and example with further clarity is found below
-//as seen above, the variables declare with var let and const were already decalared earlier in the code. since all the variables are at most function scope, 
+// even though bb and cc are within a block scope that has a truthy conditional statement, a reference error will log to the console, because those variables declared with let and const only exist within the curly brackets {} after the conditional. and example with further clarity is found below
+//as seen above, the variables declare with var let and const were already declared earlier in the code. since all the variables are at most function scope, 
 // variables that have been declared earlier in the code with var let or const can be declared in the function scope. They will be a new variable within the function scope and will have no relation to the variables with the same name outside the function scope. 
 function isB(){
     if ( 1 < 2) {

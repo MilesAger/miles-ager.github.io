@@ -1,5 +1,5 @@
 // Functions
-// 0. Functions allow us to encapsulate a block of code, which creates it's own scope that can't be accessed globally, however, functions are able to access all variables within the parent or global scope. 
+// 0. Functions allow us to encapsulate a block of code, which creates its own scope that can't be accessed globally, however, functions are able to access all variables within the parent or global scope. 
 //    Calling the function allows us to execute the block of code.
 //    Functions are considered logic data.  They provide a list of instructions that can be accessed at a later point in the code.
 // 1. two phases of function declaration/definition - creating the function, and invocation/calling/executing/applying: using the function. examples below.
@@ -37,7 +37,7 @@ var s = 1;
 }
 changeIt2();
 //in the above example, the function is able to access the variable something from the global scope and modify the value by adding 1 to it for function changeIt,
-//function changeIt2 is a high oder function and the function t within function changeIt2 is able to access and modify the variable s created in the parent scope of the function.   
+//function changeIt2 is a high order function and the function t within function changeIt2 is able to access and modify the variable s created in the parent scope of the function.   
 // 3. named functions and assigning functions to variables.
 // a named function has a specific syntax. The two previous function examples are named functions. the format is (function name(){}) 
 // The names of the two previous functions  are a, and logIt. Named function declarations are hoisted to the top of their scope. so they can be used before they are defined.
@@ -71,6 +71,6 @@ var oneBug = countBugs();
 oneBug();
 oneBug();
 oneBug();
-// Here the inner function is accessing the variable bugNum in the parent scope, and modifying it's value. 
+// Here the inner function is accessing the variable bugNum in the parent scope, and modifying its value. 
 // the above code will result in 1, 2, 3 printing to the console. This shows that the closure found in the function countBugs allows for the variable bugNum to be kept in the function scope. 
 // bugNum is only able to be modifyed when the function countBugs is called.
