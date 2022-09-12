@@ -33,3 +33,69 @@ console.log(hoist3); //this will result in a reference error: cant access before
 var hoist = 1;
 let hoist2 = 1; 
 const hoist3 = 1; 
+//5. var, let, and const. Further clarified. 
+// i. declaration in the golobal scope/outside of functions
+var xVariable;
+let yVariable; // variables declared with let can't be declared again 
+const zVariable = 0;  //const must be initialized at the point of declaration
+console.log(xVariable); // this will log as undefined
+console.log(yVariable); // this will log as undefined
+console.log(zVariable); // this will log as 0, because we had to initialize the variable upon declaration when using const.
+// When var is used, the variable can be redeclared later in the code as seen below
+var xVariable; 
+console.log(xVariable); // this will log as undefined, because we have created but not initialized the variable, and we were able to redeclare it later in the code.
+// let and const are not able to be redeclared after the variable was declared earlier in the code.
+let yVariable;
+const zVariable = 0;
+console.log(yVariable);
+console.log(zVariable);
+ // when we run the code, we will get a refrence error on line 48 and 49 due to yVariable and zVariable already being declared.
+//  Using var outside a function variables declared with let can't be declared again const must be initialized at the point of declaration
+// ii. initialization in the Global Scope - a varaible created using var or let can be reinitialized, but a variable creating using const can't. As seen below
+var aa = 1;
+let bb = 2;
+const cc = 3;
+console.log(aa);
+console.log(bb);
+console.log(cc);
+// This will result in 1, 2, 3 printing to console.
+aa = 6; 
+bb = 5;
+cc = 4; 
+console.log(aa);
+console.log(bb);
+console.log(cc);
+// this will result in 6 and 5 printing to the console, but there will be a reference error for cc on line 64. variables declared with const can't be redeclared.
+//iii. function scope and block scope var, let, and const.
+// one of var's biggest differences with let and const is variables declared with var have function scope while variables declared with let and const have block scope.
+// This meas that if a var is used to declare a variable within a function, the variable will be accessible throughout the whole function, also know has parent scope.
+// variables declared outside of functions will have global scope just like functions, and are accessible throughout the whole window object.
+// variables declared with let and const are considered block scope. This means that declaring a variable with let or const will innately constrain the variables to be block scoped and not hoisted/accessible in the global scope. examples seen below
+function isA(){
+    if ( 1 < 2) {
+    var aa;
+    let bb;
+    const cc = 0;
+    };
+        console.log(aa);
+        console.log(bb);
+        console.log(cc);
+}
+isA();
+//when the above function is called, the variable aa will be the only one that will be logged to the console as undefined. 
+//This is because variables declared with var are accessible throughout the whole function. 
+// even though bb and cc are within a block scope that has a truthy conditional statement, a reference error will log to the console, because those variables declared with let and const only exsit within that sqare brackets [] after the conditional. and example with further clarity is found below
+//as seen above, the variables declare with var let and const were already decalared earlier in the code. since all the variables are at most function scope, 
+// variables that have been declared earlier in the code with var let or const can be declared in the function scope. They will be a new variable within the function scope and will have no relation to the variables with the same name outside the function scope. 
+function isB(){
+    if ( 1 < 2) {
+    var aa;
+    let bb;
+    const cc = 0;
+    console.log(aa);
+        console.log(bb);
+        console.log(cc);
+    };
+}
+isB();
+// with the above code we can see that all variables will log to the console since we are accessing let and const within the block scope they were created. 
