@@ -14,6 +14,10 @@ else if (a > 5 && a <= 10){
     console.log('large');
 }; 
 //after this code is run 'medium' will be logged to the console. because the condition in the else if condition is met. 
+// if, else-if, else statement further clarification. 
+//if is used to specify a block of code to be execuded if the conditional statement right after the if keyword is true.
+// else if specifies a new condition to test only if the first condition/ or previous condition is false. 
+//else is placed before a block of code to be executed if all previous if, or else-if conditional statements were false. else does not have a conditional statement that must be true in order for the code to run. If the code hits else, the code in the curley brackets after the else keyword will run.
 //The if, else-if, else statement can chain together any number of else-if statements to the first if. each conditional statement tests the condition in parenthesis () and then executes the code in the body if the condition is true.
 // 2. Switch Statements.
 // switch Statements can sometimes be a cleaner way to test a large amount of conditions.

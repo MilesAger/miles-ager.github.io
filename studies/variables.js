@@ -84,7 +84,7 @@ function isA(){
 isA();
 //when the above function is called, the variable aa will be the only one that will be logged to the console as undefined. 
 //This is because variables declared with var are accessible throughout the whole function. 
-// even though bb and cc are within a block scope that has a truthy conditional statement, a reference error will log to the console, because those variables declared with let and const only exsit within that sqare brackets [] after the conditional. and example with further clarity is found below
+// even though bb and cc are within a block scope that has a truthy conditional statement, a reference error will log to the console, because those variables declared with let and const only exsit within the curley brackets {} after the conditional. and example with further clarity is found below
 //as seen above, the variables declare with var let and const were already decalared earlier in the code. since all the variables are at most function scope, 
 // variables that have been declared earlier in the code with var let or const can be declared in the function scope. They will be a new variable within the function scope and will have no relation to the variables with the same name outside the function scope. 
 function isB(){

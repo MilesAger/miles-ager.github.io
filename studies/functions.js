@@ -19,7 +19,25 @@ function logIt(string){ //string is the parameter name.
 }
 logIt(hello); // here we are passing the argument into the function when we call it. the argument will replace all instances of the parameter name in the function with the argument. 
 // the above function a function call will result in 'hello' printing to the console.
-//functions will return a single output. By default this output is undefined. otherwise we can use the return keyword followed by a value to return that value and exit the function. 
+//functions will return a single output. By default this output is undefined. otherwise we can use the return keyword followed by a value to return that value and exit the function.
+// functions are also able to access/modify variables from the global scope/or parent scope if the function is within a function as seen below
+var something = 1;
+function changeIt(){
+    something += 1;
+} 
+changeIt();
+console.log(something);
+function changeIt2(){
+var s = 1;
+   function t(){
+    s +=1;
+    console.log(s);
+   }
+   t();
+}
+changeIt2();
+//in the above example, the function is able to access the variable something from the global scope and modify the value by adding 1 to it for function changeIt,
+//function changeIt2 is a high oder function and the function t within function changeIt2 is able to access and modify the variable s created in the parent scope of the function.   
 // 3. named functions and assigning functions to variables.
 // a named function has a specific syntax. The two previous function examples are named functions. the format is (function name(){}) 
 // The names of the two previous functions  are a, and logIt. Named function declarations are hoisted to the top of their scope. so they can be used before they are defined.
